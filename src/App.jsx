@@ -31,9 +31,18 @@ const CountryData = () => {
   console.log(country);
   return (
     <>
-      <h2>Welcome To Proweb react app</h2>
-      <p>Happy clint</p>
+      {country.map((singleCounty) => (
+        <DispalyData name={singleCounty.name.common}></DispalyData>
+      ))}
     </>
+  );
+};
+const DispalyData = ({ name }) => {
+  return (
+    <div>
+      <h2>{name}</h2>
+      <p>Happy clint</p>
+    </div>
   );
 };
 export default App;
