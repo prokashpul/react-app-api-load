@@ -39,17 +39,21 @@ const CountryData = () => {
           name={singleCounty.name.common}
           area={singleCounty.area}
           flags={singleCounty?.flags?.png}
+          capital={singleCounty.capital}
         ></DispalyData>
       ))}
     </div>
   );
 };
-const DispalyData = ({ name, area, flags }) => {
+const DispalyData = ({ name, area, flags, capital }) => {
   return (
     <div className="country">
       <img src={flags} alt="" />
-      <h2>{name}</h2>
-      <p>Area: {area}</p>
+      <div className="cart-body">
+        <h2>{name}</h2>
+        <h4>{capital}</h4>
+        <p>Area: {area}</p>
+      </div>
     </div>
   );
 };
