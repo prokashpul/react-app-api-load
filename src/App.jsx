@@ -5,9 +5,12 @@ import { useEffect, useState } from "react";
 function App() {
   return (
     <div className="App">
-      <h2>Welcome To Proweb react app</h2>
-      <p>Happy clint</p>
-      <Countries></Countries>
+      <header>
+        <h2 className="heading">Welcome To Proweb react All country app</h2>
+      </header>
+      <main>
+        <Countries></Countries>
+      </main>
     </div>
   );
 }
@@ -30,18 +33,23 @@ const CountryData = () => {
   }, []);
   console.log(country);
   return (
-    <>
+    <div className="countries">
       {country.map((singleCounty) => (
-        <DispalyData name={singleCounty.name.common}></DispalyData>
+        <DispalyData
+          name={singleCounty.name.common}
+          area={singleCounty.area}
+          flags={singleCounty?.flags?.png}
+        ></DispalyData>
       ))}
-    </>
+    </div>
   );
 };
-const DispalyData = ({ name }) => {
+const DispalyData = ({ name, area, flags }) => {
   return (
-    <div>
+    <div className="country">
+      <img src={flags} alt="" />
       <h2>{name}</h2>
-      <p>Happy clint</p>
+      <p>Area: {area}</p>
     </div>
   );
 };
